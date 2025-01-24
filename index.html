@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA Mutation Prediction</title>
+</head>
+<body>
+    <h1>DNA Mutation Prediction</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul>
+        {% for category, message in messages %}
+        <li style="color: {% if category == 'error' %}red{% else %}green{% endif %};">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Form to input DNA sequence -->
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <label for="sequence">DNA Sequence:</label>
+        <input type="text" name="sequence_input" id="sequence" placeholder="e.g. ATGCATGC" required>
+        <br><br>
+        <label for="fasta_file">Upload FASTA File:</label>
+        <input type="file" name="fasta_file" id="fasta_file" accept=".fasta">
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display prediction results if available -->
+    {% if prediction %}
+    <h3>Prediction Result:</h3>
+    <p><strong>Predicted Mutation Type:</strong> {{ prediction }}</p>
+
+    <h4>Formatted Sequence:</h4>
+    <p>{{ sequence }}</p>
+
+    <h4>Additional Features:</h4>
+    <ul>
+        {% for feature, value in features.items() %}
+        <li><strong>{{ feature }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Download button for the PDF -->
+    <p>
+        <a href="{{ url_for('download', file=pdf_file) }}">
+            <button type="button">Download Prediction Result as PDF</button>
+        </a>
+    </p>
+    {% endif %}
+</body>
+</html>

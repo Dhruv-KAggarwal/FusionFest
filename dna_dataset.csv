@@ -1,0 +1,16 @@
+
+
+
+DNA_Sequence,Mutation_Impact
+ATGCGTA,Neutral Mutation
+ATCCGTT,Harmful Mutation
+GGTACCA,Beneficial Mutation
+ATGGGTA,Neutral Mutation
+GTACGTA,Harmful Mutation
+CGTAGGC,Beneficial Mutation
+GGTACTT,Neutral Mutation
+ATGCCGA,Harmful Mutation
+TGCACCT,Beneficial Mutation
+ACCGGTA,Neutral Mutation
+GTGCTTA,Harmful Mutation
+ATACGCT,Beneficial Mutation
