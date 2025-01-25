@@ -156,7 +156,8 @@ def generate_csv(features, formatted_sequence, predicted_label):
     features_df.to_csv(filename, index=False)
     print(f"CSV report generated: {filename}")
 
-# Step 7: Test the prediction with an input sequence
-new_sequence = input("Enter the DNA sequence: ")
-output = predict_with_features(new_sequence)
-print(output)
+# # Step 7: Test the prediction with an input sequence
+# new_sequence = input("Enter the DNA sequence: ")
+# output = predict_with_features(new_sequence)
+# print(output)
+print("a")

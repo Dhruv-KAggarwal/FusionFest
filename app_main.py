@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, redirect, url_for,
 import os
 from werkzeug.utils import secure_filename
 from fpdf import FPDF  # For generating PDFs
-import load  # Ensure your `load.py` is in the same directory as `app.py`
+import load # Ensure your `load.py` is in the same directory as `app.py`
 
 app = Flask(__name__)
 
